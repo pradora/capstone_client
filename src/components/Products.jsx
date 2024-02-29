@@ -1,25 +1,39 @@
 // GetAllProducts.jsx
-import React from 'react';
-import { useGetAllProductsQuery, useGetProductQuery} from '../app/jewlApi';
-import { useSelector } from 'react-redux';
+// import React from 'react';
+import { useGetAllProductsQuery, } from '../app/api';
+// import { useSelector } from 'react-redux';
 
 
 const GetAllProducts = () => {
-  const product = useSelector(state => state.products)
-  console.log(product)
-  const { data, isLoading } = useGetProductQuery(2);
-  // const products = useSelector((state) => state.products);
+  const { data, error, isLoading } = useGetAllProductsQuery();
+
+  // Log the API data
+  console.log(data); 
+  
+ 
 
   return (
-    <>
-      {isLoading ? (
-        <h1>Loading...</h1>
-      ) : (
-        data.map((item) => (
-          <p key={item.id}>{item.name}</p>
-        ))
-      )}
-    </>
+
+    <div>
+  {isLoading && <p>Loading...</p>}
+  {error && <p>Error: {error}</p>}
+  {data && (
+    <div>
+      {data.map((product) => (
+        <div key={product.id}>
+          {/* <img
+            src={`data:image/png;base64, ${product.image}`}
+            alt="Product Image"
+          /> */}
+          <p>{product.name}</p>
+          <p>${product.price}</p>
+          <p>{product.description}</p>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
   );
 };
 

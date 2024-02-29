@@ -1,18 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {jewlApi} from "./jewlApi.js";
+import {api} from "./api.js";
 import getAllProductSlice from "../features/product/getAllProductSlice.js";
 
 
 export const store = configureStore({
     reducer: {
-        [jewlApi.reducerPath]: jewlApi.reducer,
+        [api.reducerPath]: api.reducer,
         products: getAllProductSlice,
         // product: productSlice,
         // user: getUserSlice,
         // cart: getCartSlice,
       },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(jewlApi.middleware),
+        getDefaultMiddleware().concat(api.middleware),
 });
 
 export default store;

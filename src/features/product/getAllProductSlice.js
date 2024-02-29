@@ -1,14 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { jewlApi } from "../../app/jewlApi";
+import { api } from "../../app/api";
 
 const getAllProductSlice = createSlice({
     name: "products",
     initialState: [],
     extraReducers: (builder) => {
       builder.addMatcher(
-        jewlApi.endpoints.getAllProducts.matchFulfilled,
+        api.endpoints.getAllProducts.matchFulfilled,
         (state, { payload }) => {
-          console.log(payload); // Log the payload
           return payload.results;
         }
       );
