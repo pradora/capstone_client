@@ -14,26 +14,25 @@ const GetAllProducts = () => {
 
   return (
 
-    <div>
-  {isLoading && <p>Loading...</p>}
-  {error && <p>Error: {error}</p>}
-  {data && (
-    <div>
-      {data.map((product) => (
-        <div key={product.id}>
-          {/* <img
+    <div className='Products'>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {data && (
+        <div>
+          {data.map((product) => (
+            <div key={product.id}>
+              {/* <img
             src={`data:image/png;base64, ${product.image}`}
             alt="Product Image"
           /> */}
-          <p>{product.name}</p>
-          <p>${product.price}</p>
-          <p>{product.description}</p>
+              <p>{product.name}</p>
+              <p>${product.price}</p>
+              <p>{product.description}</p>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
-  )}
-</div>
-
   );
 };
 

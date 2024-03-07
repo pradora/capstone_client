@@ -12,23 +12,35 @@ export const api = createApi({
         getSingleProduct: builder.query({
             query: (id) => `/api/products/${id}`
         }),
-        // registerUser: builder.query({
-        //     query: () => '/user/register'
-        // }),
+        getSingleUser: builder.query({ 
+            query: (id) => `auth/users/${id}` 
+        }),
         registerUser: builder.mutation({
             query: (userData) => ({
-                url: '/user/register',
+                url: 'auth/user/register',
                 method: 'POST',
                 body: userData
             })
+        }),
+        loginUser: builder.mutation({
+            query: (userData) => ({
+              url: "/auth/user/login",
+              method: "POST",
+              body: userData,
+            }),
         })
-        // getSingleUser: builder.query({ query: (id) => `auth/users/${id}` }),
+        
+        
+       
     })
 });
 
 export const {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
+  useGetSingleUserQuery,
+  useRegisterUserMutation,
+  useLoginUserMutation,
 } = api;
 
 

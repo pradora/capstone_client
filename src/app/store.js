@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {api} from "./api.js";
-import getAllProductSlice from "../features/product/getAllProductSlice.js";
+import getAllProductSlice from "../features/ProductSlice.js";
 
 
 export const store = configureStore({
