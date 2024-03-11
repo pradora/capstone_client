@@ -66,9 +66,9 @@ const RegisterUser = () => {
 
     try {
       const response = await registerUser(formData);
-      console.log("Outside IF loop, Response:", response.data)
+      // console.log("Outside IF loop, Response:", response.data)
       if (response.status === 200||201||204) {
-        console.log("inside IF loop",response)
+        // console.log("inside IF loop",response)
         setShowSuccessAlert(true);
         setFormData({
           username: "",
