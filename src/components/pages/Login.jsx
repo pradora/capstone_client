@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { useLoginUserMutation } from '../app/api';
-function Login() {
+import { useLoginUserMutation } from '../../app/api';
+// import { useDispatch  } from 'react-redux';
+import "./pagesStyles.css";
+
+import { useNavigate} from 'react-router-dom';
+const Login = () => {
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [loginUser] = useLoginUserMutation();
   const [formData, setFormData] = useState({
@@ -24,21 +30,22 @@ function Login() {
     }
     try {
       const response = await loginUser(formData);
-
+      console.log(response)
+      navigate('/products')
     } catch (error) {
-      throw error;
+      throw console.error(error);
+      
     }
   }
   return (
-    // <div>LogIn</div>
     <>
       <form className='loginForm' onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
-        <input name="username" type="text" onChange={handleChange} />
+        <input name="username" placeholder="Username" type="text" onChange={handleChange} />
         <br />
         <br />
         <label htmlFor="password">Password:</label>
-        <input name="password" type={show ? "text" : "password"} onChange={handleChange} />
+        <input name="password" placeholder="Password"  type={show ? "text" : "password"} onChange={handleChange} />
         <button type="button" onClick={() => setShow(!show)}>Show</button>
         <br />
         <br />

@@ -13,7 +13,7 @@ export const api = createApi({
             query: (id) => `/api/products/${id}`
         }),
         getSingleUser: builder.query({ 
-            query: (id) => `auth/users/${id}` 
+            query: (username) => `auth/user/${username}` 
         }),
         registerUser: builder.mutation({
             query: (userData) => ({

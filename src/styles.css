@@ -1,0 +1,38 @@
+@keyframes pastelBackground {
+  0% { background-color: #FF9999; } /* Red */
+  7.14% { background-color: #FFB366; } /* Orange */
+  14.28% { background-color: #FFD966; } /* Yellow */
+  21.42% { background-color: #FFFF66; } /* Yellow */
+  28.56% { background-color: #CCFF66; } /* Lime */
+  35.70% { background-color: #99FF66; } /* Lime */
+  42.84% { background-color: #66FF66; } /* Lime */
+  50.00% { background-color: #66FF99; } /* Green */
+  57.14% { background-color: #66FFCC; } /* Aqua */
+  64.28% { background-color: #66FFFF; } /* Cyan */
+  71.42% { background-color: #66CCFF; } /* Sky Blue */
+  78.56% { background-color: #9999FF; } /* Blue */
+  85.70% { background-color: #CC99FF; } /* Purple */
+  92.84% { background-color: #FFCCFF; } /* Pink */
+  100% { background-color: #FF9999; } /* back to Red */ 
+}
+
+
+
+body {
+  font-family: 'Courier New', Courier, monospace; /* Use Courier New font */
+  background-color: #FFD1DC; /* Initial color (Pink) */
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  animation: pastelBackground 20s infinite;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 1rem 0.5rem;
+}

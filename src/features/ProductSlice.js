@@ -1,17 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { api } from "../app/api";
 
-const getAllProductSlice = createSlice({
-    name: "products",
-    initialState: [],
-    extraReducers: (builder) => {
-      builder.addMatcher(
-        api.endpoints.getAllProducts.matchFulfilled,
-        (state, { payload }) => {
-          return payload.results;
-        }
-      );
+const productsSlice = createSlice({
+  name: "products",
+  initialState: {
+    productList: [], 
+    selectedProduct: null, 
+  },
+  reducers: {
+    selectProduct: (state, action) => {
+      state.selectedProduct = action.payload; 
     },
-  });
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      api.endpoints.getAllProducts.matchFulfilled,
+      (state, { payload }) => {
+        state.productList = payload.results;
+      }
+    );
+  },
+});
 
-export default getAllProductSlice.reducer;
+export const { selectProduct } = productsSlice.actions;
+export default productsSlice.reducer;

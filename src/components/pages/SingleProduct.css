@@ -1,0 +1,11 @@
+.SingleProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional: Adjust the height as needed */
+    margin-top: 2%;
+  }
+  
+  .SingleProduct-container {
+    text-align: center;
+  }
